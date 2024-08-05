@@ -3,18 +3,41 @@ HTTPS, SSH, Github CLI
 
 
 
+
 ### HTTPS
 ``` sh
 git clone https://github.com/<user_name>/<repo_name>.git
 ```
 
-To allow commit and push through **PAT**
+
+#### Push the changes to git for non-users thrugh PAT **To Be Tried**
+To allow commit and push through **PAT**. 
+
+create and use the PAT token by the below steps
+
+1. Goto User profile -> Settings -> Tokens
+2. Create toekn with the expire date, repository allowed, actions (commit, content changes, codespaces create, etc.)
+2.1. For push, content & commit access -> read-write. by default no-action is set on the actions.
+3. copy the generated PAT token and share to the non-user
+4. If git push commit enabled means, the the non-user prompted for git login on git push, where the username, and PAT has to be given. 
+5. This one will prompt for every time on remote changes, like pushes.where it can be cached for time being(not know how to).
+
+example PAT (Personal Access Token): github_pat_<<SOME_HASH_CODE>>
 
 
 ### SSH
-```sh
+
+You can see the below command , where the SSH & HTTPS arguments are different, but command is same.
+
+```ssh
 git clone git@github.com:<<username>/<repo_name>>.git
 ```
+
+__Note__: on pushing the changes from local to repo need SSH key on the local machine. if there is no git login is provided. Below are the steps to create ssh keys.
+
+
+
+
 ## Git hidden folder
 inside .git folder contains the config and commit details etc. if this removed, git capabilities removed. to create a git repo from a folder and .git use the below command
 
@@ -89,9 +112,9 @@ to push the changes from local to remote repo. before pushing the changes the lo
 git push
 ```
 
-```
-touch ## create a file
-code  ## edit a file
+```sh
+touch ___ ## create a file
+code  ___ ## edit a file
 ```
 
 
