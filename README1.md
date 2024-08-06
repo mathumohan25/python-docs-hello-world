@@ -99,7 +99,7 @@ on changing also run 'git add' before git commit command.
 Here without -m  in git commit will open the commit message editor in codespace . To set the default editor change in git config. this git config file is present inside .git folder
 
 ```sh
-git commit
+git commit   ## run git add or add -a if not file changes are added
 ```
 
 change the editor by below command
@@ -169,8 +169,12 @@ git  branch -u orignin <<branch_name>>  ## set before merge and push to reflect 
 To Merge the changes to master or otehr branch use the below command
 
 ```sh
-git checkout <<current_branch>>
-git merge <<target_branch>>
+## execute git fetch , to check uptodate from remote
+
+## checkout require both, example current is beta, target is main 
+git checkout <<current_branch & target_branch>>    
+git merge <<current_branch>>  ## so the merge is on, git merge beta from main(checked out)
+git push ## push to remote
 ```
 
 Stash is for,  the changes to not commit the changes in local/remote
