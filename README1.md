@@ -159,6 +159,29 @@ to push the changes from local to remote repo. before pushing the changes the lo
 ```sh 
 git push
 ```
+To add remote branch , but add remote via upstream while adding a branch
+
+```sh
+git remote add ... ## not tried
+git  branch -u orignin <<branch_name>>  ## set before merge and push to reflect changes in remote 
+```
+
+To Merge the changes to master or otehr branch use the below command
+
+```sh
+git checkout <<current_branch>>
+git merge <<target_branch>>
+```
+
+Stash is for,  the changes to not commit the changes in local/remote
+
+```sh
+git stash   ## without name added
+git stash save <<name>>   ## added with name
+git stash list  ## list the stash entries
+git stash pop   ## remove the last stash entry and apply the changes back
+git stash apply  ## the same like git stash pop
+```
 
 ```sh
 touch ___ ## create a file
