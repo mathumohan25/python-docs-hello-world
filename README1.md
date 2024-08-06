@@ -1,7 +1,19 @@
 ## Ways to clone github repo
 HTTPS, SSH, Github CLI
 
+Install the github cli just like other linux commands
 
+```sh
+### not added GPG keys and apt-repo command here
+sudo apt update
+sudo apt install gh -y
+
+gh auth login  ## login to github (prompt for url, name, key(if ssh) etc)
+gh repo clone <<repo_path>> # clone the repo 
+```
+
+
+On cloning no need to set remote for .git local repo, only local repo needed
 
 
 ### HTTPS
@@ -25,7 +37,7 @@ create and use the PAT token by the below steps
 example PAT (Personal Access Token): github_pat_<<SOME_HASH_CODE>>
 
 
-### SSH
+### SSH (to be Tried)
 
 You can see the below command , where the SSH & HTTPS arguments are different, but command is same.
 
@@ -33,9 +45,32 @@ You can see the below command , where the SSH & HTTPS arguments are different, b
 git clone git@github.com:<<username>/<repo_name>>.git
 ```
 
-__Note__: on pushing the changes from local to repo need SSH key on the local machine. if there is no git login is provided. Below are the steps to create ssh keys.
+### Use SSH keys on git push
+ on pushing the changes from local to repo need SSH key on the local machine. if there is no git login is provided. Below are the steps to create ssh keys.
 
+1. Create SSH key
+```sh
+ssh-keygen -t rsa ## prompt for key name, pass-phrase
+```
 
+2. Add public key in Github (key-type as authentication key)
+
+  once generated the public, private key , COPY the public key contents and PASTE it in Profile-> Settings-> SSH & GPG Keys -> add new SSH keys
+
+3. To test SSH connection
+
+```sh
+ssh -T git@github.com
+```
+
+4. Add ssh private key in local's  authorized-keys by below command. If not working on push
+
+```sh
+eval 'ssh-agent'  ## open connection to auth agent
+ssh-add /home/user/.ssh/key_id_rsa ## add private key
+```
+
+5. Perform git push !!! Thats it!!
 
 
 ## Git hidden folder
@@ -72,6 +107,19 @@ change the editor by below command
 git config --global core.editor emacs
 ```
 
+## git branches
+
+```sh
+git branch  ## list the branches
+git branch <new_name>  ## create the new branch
+git checkout <branch_name>  ## switch to other branch(remote/local), on this uncommited changes moved from current to switched branch
+git branch -d -f <branch_name>  ## delete branch forcefully
+```
+If the branch is not in remote, the push will be failed. To set the git to create the branch in remote from local, set the upstream like below
+
+```sh
+git push --set-upstream origin <new_branch_name>
+```
 
 
 ## git commands
