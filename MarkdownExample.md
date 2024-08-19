@@ -61,7 +61,9 @@ Image URL with invalid path : ![alt_text](http://<<dummy>>)
 
 Refer in the same repo [Gituses](Readme.md)
 
-Issue link: #1 
+Issue link:
+
+#1 refer link https://github.com/mathumohan25/python-docs-hello-world/issues/1 , for the details tag and issue link
 
 Task list:
 - [x] done
