@@ -194,5 +194,7 @@ code  ___ ## edit a file
 
 __Note__:
   1. VS Code extensions like Git graph, git tree, etc used to visualize the git commits,branches, etc. Once installed, that can be viewed in *Source control* menu.
+
+nuCaf3JrMd!qShA$&DK_
   
 
