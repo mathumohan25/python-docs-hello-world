@@ -173,7 +173,7 @@ To Merge the changes to master or otehr branch use the below command
 
 ## checkout require both, example current is beta, target is main 
 git checkout <<current_branch & target_branch>>    
-git merge <<current_branch>>  ## so the merge is on, git merge beta from main(checked out)
+git merge <<current_branch>>  ## so the merge is on, 'git merge beta' from main(checked out), to pull changes from main to beta, run 'git merge main' from beta
 git push ## push to remote
 ```
 
@@ -194,5 +194,7 @@ code  ___ ## edit a file
 
 __Note__:
   1. VS Code extensions like Git graph, git tree, etc used to visualize the git commits,branches, etc. Once installed, that can be viewed in *Source control* menu.
+
+nuCaf3JrMd!qShA$&DK_
   
 
